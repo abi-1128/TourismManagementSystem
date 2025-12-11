@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Travel Management System{% endblock %}</title>
+    <!-- Add your CSS links here -->
+</head>
+<body>
+    <header>
+        <!-- Your header content goes here -->
+        <h1>Travel Management System</h1>
+        <nav>
+            <!-- Your navigation links go here -->
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- This is where the content of each page will be inserted -->
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <!-- Your footer content goes here -->
+        <p>&copy; 2024 Travel Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+

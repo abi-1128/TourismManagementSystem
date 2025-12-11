@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 2%;
+            background-color: rgba(20, 2, 2, 0.5);
+            margin-left: 30%;
+            margin-right: 30%;
+            color: aliceblue;
+        }
+
+        form {
+            margin-top: 5%;
+            margin-left: 35%;
+            border-radius: 30px;
+            height: 50vh;
+            width: 30vw;
+            background-color: rgba(229, 219, 219, 0.5);
+            box-shadow: 5px 5px 5px 5px rgba(20, 2, 2, 0.5);
+        }
+        input {
+            margin-top: 6%;
+            margin-left: 6vw;
+            text-align: center;
+        }
+        button {
+            height: 4vh;
+            width: 4vw;
+            border-radius: 30px;
+            border: none;
+            margin-left: 15%;
+            margin-top: 4%;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 2vh;
+        }
+    </style>
+</head>
+
+<body style="background-color:rgba(20, 2, 2, 0.5);">
+    <div>
+        <button type="button"><a href="{% url 'homepage' %}">Back</a></button>
+    </div>
+    <div>
+        <h1>ENQUIRY</h1>
+        <div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Enter Username" style="font-size: 3vh;"><br>
+                <input type="email" name="email" placeholder="Enter Email" style="font-size: 3vh;"><br>
+                <input type="text" name="Mobile_Number" placeholder="Enter Mobile_Number" style="font-size: 3vh;"><br>
+                <input type="text" name="subject" placeholder="subject" style="font-size: 3vh;"><br>
+                <input type="text" name="description" placeholder="Enter Description" style="font-size: 3vh;"><br>
+                <input type="submit" name="submit" style="font-size: 3vh; margin-left: 12vw;">
+            </form>
+        </div>
+    </div>
+    <script>
+        alert("{% for msg in messages%} {{msg}} {% endfor %}")
+    </script>
+</body>
+
+</html>

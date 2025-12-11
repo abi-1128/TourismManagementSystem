@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAVEL MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">  
+</head>
+<body style="background-image: url('{%static "assets/travel.JPEG" %}'); background-position:center; background-repeat:no-repeat;background-size:cover;">
+    <div class="row" style="height: 20%; border: 1px solid; background-color: deeppink;">
+        <div class="col-6">
+            <h4 style="margin-left: 80px;"><a href="{% url  'adminlogin' %}">Admin Login</a></h4>
+        </div>
+        <div class="col-6">
+            <p style="margin-left: 40%;">Toll Number : 12345-67890 <a href="{% url 'signup' %}">Sign UP</a>  / <a href="{% url 'login' %}">Signin</a></p>
+        </div>
+       </div>
+       <div class="row" style="height: 50%; border: 1px solid; background-color: rgb(104, 148, 205);">
+        <div class="col-6">
+            <h1 style="margin-left: 20%; margin-top: 5%;">Tourism Management System</h1>
+    
+        </div>
+        <div class="col-6">
+            <p style="margin-left: 40%; margin-top: 5%;">SAFE& SECURE</p>
+    
+        </div>
+    </div>
+    <div class="row" style="border: 1px solid; background-color: chartreuse; height: 50px;">
+        <ul style="display: flex; height: 30%;">
+            <li style="margin-top: 3%; position: absolute; top: 70px;margin-right: 30%;"><a href="{% url 'homepage' %}">Home</a></li>
+            <li style="margin-top: 3%; position:  absolute; top: 70px;margin-left: 30%;"><a href="about">About</a></li>
+            <li style="margin-top: 3%; position: absolute; top: 70px;margin-left: 40%;"><a href="Tour Packages">Tour_Packages</a></li>
+            <li style="margin-top: 3%; position: absolute; top: 70px;margin-left: 55%; "><a href="Privacy Policy">Privacy&Policy</a></li>
+            <li style="margin-top: 3%; position: absolute; top: 70px;margin-left: 70%;"><a href="Terms of Use">Terms_of_Use</a></li>
+            <li style="margin-top: 3%; position: absolute; top: 70px;margin-left: 80%;"><a href="Contact Us">Contact_Us</a></li>
+            <li style="margin-top: 3%; position: absolute; top: 70px;margin-left: 90%;"><a href="{% url 'Enquiry' %}">Enquiry</a></li>
+        </ul>
+    
+    </div>
+<div>
+    <img src="{% static 'assets/image2.JPEG' %}" alt="" style="width: 100%; height: fit-content;">
+</div>
+<div class="row">
+    <div>
+        <h2>Packages List</h2>
+        <div>
+            <div class="card row">
+                <div class="container">
+                    <img src="{% static 'assets/kerala.jpeg' %}" alt="kerala" style="width:20vw; height: 20vh;">
+                </div>
+                
+                <div class="container">
+                  <h4 style="color: greenyellow;"><b>Package Name: Kerala- A Lovers Paradise-Value Added</b></h4>
+                  <p style="font-size: small; margin-top: 2%;">Package Type: Family package</p>
+                  <p style="color:grey; font-size: small; margin-top: 5%;">Package Location : Kerala</p>
+                  <p style="color: grey; font-size: small; margin-top: 3%;">Features  Free pick up abd drop facility</p>
+                </div>
+                <div class="container">
+                    <p style="font-size:small; color:grey; margin-left: 200%;">USD 5000</p>
+                    <button type="button" style="margin-left: 200%;">Details</button>
+                </div>
+            </div>
+            <div>
+                <div class="card row">
+                    <div class="container">
+                        <img src="{% static 'assets/ooty.jpeg' %}" alt="ooty" style="width:20vw; height: 20vh;">
+                    </div>
+                    
+                    <div class="container">
+                      <h4 style="color: greenyellow;"><b>Package Name: ooty-Selling holiday packages, starting</b></h4>
+                      <p style="font-size: small; margin-top: 2%;">Package Type: Family package</p>
+                      <p style="color:grey; font-size: small; margin-top: 5%;">Package Location : ooty</p>
+                      <p style="color: grey; font-size: small; margin-top: 3%;">Features Captivating landscapes, lush green valleys, and rolling hills</p>
+                    </div>
+                    <div class="container">
+                        <p style="font-size:small; color:grey; margin-left: 200%;">USD 16,584 </p>
+                        <button type="button" style="margin-left: 200%;">Details</button>
+                    </div>
+                </div>
+                <div class="card row">
+                    <div class="container">
+                        <img src="{% static 'assets/Ksr bengalore.jpeg' %}" alt="ksr bengalor" style="width:20vw; height: 20vh;">
+                    </div>
+                    
+                    <div class="container">
+                      <h4 style="color: greenyellow;"><b>Package Name: Ksr bengalor-Selling holiday packages, starting</b></h4>
+                      <p style="font-size: small; margin-top: 2%;">Package Type: Family package</p>
+                      <p style="color:grey; font-size: small; margin-top: 5%;">Package Location : ksr bengalor</p>
+                      <p style="color: grey; font-size: small; margin-top: 3%;">Features Captivating landscapes, lush green valleys, and rolling hills</p>
+                    </div>
+                    <div class="container">
+                        <p style="font-size:small; color:grey; margin-left: 150%;">USD 16,584 </p>
+                        <button type="button" style="margin-left: 140%;">Details</button>
+                    </div>
+                </div>
+                <div class="card row">
+                    <div class="container">
+                        <img src="{% static 'assets/araku.jpeg' %}" alt="araku" style="width:20vw; height: 20vh;">
+                    </div>
+                    
+                    <div class="container">
+                      <h4 style="color: greenyellow;"><b>Package Name: araku- vizag destination mainly known for its beaches location at a distance of 120km from vizag is a beautiful hill station called araku </b></h4>
+                      <p style="font-size: small; margin-top: 2%;">Package Type: Friends package</p>
+                      <p style="color:grey; font-size: small; margin-top: 5%;">Package Location : araku </p>
+                      <p style="color: grey; font-size: small; margin-top: 3%;">Features View of the landscape,the enchanting waterfalls, tribal culture, and the lush green forests</p>
+                    </div>
+                    <div class="container">
+                        <p style="font-size:small; color:grey; margin-left: 30%;">USD 16,584 </p>
+                        <button type="button" style="margin-left: 10%;">Details</button>
+                    </div>
+                </div>
+                <div class="card row">
+                    <div class="container">
+                        <img src="{% static 'assets/lambasingi.jpeg' %}" alt="lambasing" style="width:20vw; height: 20vh;">
+                    </div>
+                    
+                    <div class="container">
+                      <h4 style="color: greenyellow;"><b>Package Name: lambasing- family holiday packages instantly on travel</b></h4>
+                      <p style="font-size: small; margin-top: 2%;">Package Type: Family package</p>
+                      <p style="color:grey; font-size: small; margin-top: 5%;">Package Location : lambasing</p>
+                      <p style="color: grey; font-size: small; margin-top: 3%;">Features  famous for its tea and coffe plantations along with little apple and strawberry farms</p>
+                    </div>
+                    <div class="container">
+                        <p style="font-size:small; color:grey; margin-left: 70%;">USD  5750</p>
+                        <button type="button" style="margin-left: 40%;">Details</button>
+                    </div>
+                </div>
+                <div class="card row">
+                    <div class="container">
+                        <img src="{% static 'assets/mysuru.JPEG' %}" alt="mysuru" style="width:20vw; height: 20vh;">
+                    </div>
+                    
+                    <div class="container">
+                      <h4 style="color: greenyellow;"><b>Package Name: mysuru-We visit  Mysore Dusshera Exhibition and Mysore palace</b></h4>
+                      <p style="font-size: small; margin-top: 2%;">Package Type: Friends package</p>
+                      <p style="color:grey; font-size: small; margin-top: 5%;">Package Location : mysuru</p>
+                      <p style="color: grey; font-size: small; margin-top: 3%;">Features popularly know as mysore Dasara the places is illuminated with more than 96,000 lights during the festivites</p>
+                    </div>
+                    <div class="container">
+                        <p style="font-size:small; color:grey; margin-left: 40%;">USD  7000</p>
+                        <button type="button" style="margin-left: 10%;">Details</button>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <h4>View More Packages</h4>
+                    <div>
+
+        </div>
+    </div>
+
+</div>
+<footer style="margin-top: 120vh; background-color:rgb(238, 231, 231) ;">
+    <div class="Footer">
+        <h1></h1>
+    </div>
+</footer>
+<div class="row"> 
+    <div>
+
+    </div>
+</div>
+</body>
+
+</html>

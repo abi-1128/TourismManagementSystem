@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User_dashboard</title>
+    <style>
+        li {
+            list-style-type: none;
+        }
+        h1 {
+            margin-left: 5%;
+        }
+        .menu {
+            height: 10vh;
+            width: 40vw;
+            background-color: rgba(20, 2, 2, 0.5);
+            margin-left: 24%;
+        }
+        /* .box {
+            height: 50vw;
+            width: fit-content;
+            background-color: rgba(20, 2, 2, 0.5);
+            color: aliceblue;
+            margin-left: 20%;
+        } */
+        button {
+            margin-top: 3%;
+            height: 4vh;
+            margin-left: 12%;
+            font-size: 2vh;
+        }
+
+        button:hover {
+            background-color: rgba(20, 2, 2, 0.5);
+            color: white;
+            border: none;
+        }
+        .styles {
+            font-size: 3vh;
+            background-color: rgba(20, 2, 2, 0.5);
+            color: aliceblue;
+            margin-left: 5%;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            var sections = document.getElementsByClassName("content-section");
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = "none";
+            }
+            document.getElementById(sectionId).style.display = "block";
+        }
+    </script>
+    <script>
+        alert("{% for msg in messages%} {{msg}} {% endfor %}")
+    </script>
+</head>
+<body style="background-image: url('{% static "assets/b1.jpg" %}');background-repeat:no-repeat;background-size:cover;">
+    {% include 'components/header.html' %}
+    {% for i in obj2 %}
+        <h1>Welcome {{ i.username }}</h1>
+    {% endfor %}
+    <div class="menu">
+        <button type="button" onclick="showSection('section1')">Tour Packages</button>
+        <button type="button" onclick="showSection('section2')">My Bookings</button>
+        <button type="button" onclick="showSection('section3')">Raising Tickets</button>
+    </div>
+
+
+    <div id="section1" class="content-section" style="display:none; margin-top:5%;">
+        <table border="1px" class="styles">
+            <tr>
+                <th>Booking Id</th>
+                <th>Package Name</th>
+                <th>Package Location</th>
+                <th>For More Information</th>
+            </tr>
+            {% for i in data1 %}
+            <tr>
+                <td>{{ i.BookingId }}</td>
+                <td>{{ i.PackageName }}</td>
+                <td>{{ i.PackageLocation }}</td>
+                <td><button><a href="{% url 'Package_details' i.id  %}">Details</a></button></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+    <div id="section2" class="content-section" style="display:none; margin-top:5%;">
+        <table border="1px" class="styles">
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Package Name</th>
+            </tr>
+            {% for i in data2 %}
+            <tr>
+                <td>{{ i.username }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.PackageName }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+
+
+
+    <div id="section3" class="content-section" style="display:none; margin-top:5%;">
+        <form action="{% url 'Rticket' %}" method="post">
+            {% csrf_token %}
+            <div style="margin-left: 20%; margin-right: 50%; text-align: center;" class="styles">
+                <label for="name">Username :</label>
+                <input type="text" name="name"><br><br>
+                <label for="Package_Name">Package Name:</label>
+                <input type="text" name="Package_Name"><br><br>
+                <label for="Package_Location">Package Location</label>
+                <input type="text" name="Package_Location"><br>
+                <label for="comment">Comment:</label>
+                <input type="text" name="comment"><br><br>
+                <input type="submit" value="submit" style="height: 50%; ">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

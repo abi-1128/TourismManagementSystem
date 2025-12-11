@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style-type: none;
+        }
+
+        .menu {
+            height: 10vh;
+            width: 50vw;
+            background-color: rgba(20, 2, 2, 0.5);
+            margin-left: 24%;
+        }
+
+        button {
+            margin-top: 3%;
+            height: 4vh;
+            margin-left: 5%;
+        }
+
+        button:hover {
+            background-color: rgba(20, 2, 2, 0.5);
+            color: white;
+            border: none;
+        }
+
+        .styles {
+            font-size: 3vh;
+            background-color: rgba(20, 2, 2, 0.5);
+            color: aliceblue;
+            margin-left: 5%;
+        }
+        input[type=submit],[type=text],[select],[type=number],[type=date] {
+            height: 4vh;
+            border-radius: 5px;
+            border: none;
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            var sections = document.getElementsByClassName("content-section");
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = "none";
+            }
+            document.getElementById(sectionId).style.display = "block";
+        }
+    </script>
+    <script>
+        alert("{% for msg in messages%} {{msg}} {% endfor %}")
+    </script>
+</head>
+
+<body style="background-image: url('{% static "assets/b1.jpg" %}');background-repeat:no-repeat;background-size:cover;>
+    {% include 'components/header.html' %}
+    <h1>Welcome</h1>
+    <div class="menu">
+        <button type="button" onclick="showSection('section1')">Create Package</button>
+        <button type="button" onclick="showSection('section2')">Manage Package</button>
+        <button type="button" onclick="showSection('section3')">Enquiries</button>
+        <button type="button" onclick="showSection('section4')">Users</button>
+        <button type="button" onclick="showSection('section5')">User Raised Tickets</button>
+    </div>
+
+    <div id="section1" class="content-section" style="display:none; margin-top:10%;">
+        <form action="{% url 'Sowmya' %}" method="post">
+            {% csrf_token %}
+            <div style="margin-left: 20%; margin-right: 50%; text-align: center;" class="styles">
+                <label for="Booking Id">Booking Id :</label>
+                <input type="text" name="Booking Id"><br><br>
+                <label for="Package Name">Package Name:</label>
+                <input type="text" name="Package Name"><br><br>
+                <label for="PackageLocation">PackageLocation</label>
+                <input type="text" name="PackageLocation"><br>
+                <label for="Package_type">PackagType:</label>
+                <select name="Package_type">
+                    <option value="AllServices">AllServices</option>
+                    <option value="FoodService">FoodService</option>
+                    <option value="TravelService">TravelService</option>
+                    <option value="Accomdation">Accomdation</option>
+                </select><br>
+                <label for="Price">Price</label>
+                <input type="number" name="Price"><br>
+                <label for="From">From:</label>
+                <input type="date" name="From"><br><br>
+                <label for="TO">TO:</label>
+                <input type="date" name="TO"><br><br>
+                <label for="Comment">Comment:</label>
+                <input type="text" name="Comment"><br><br>
+                <input type="submit" value="submit" style="height: 50%; ">
+            </div>
+        </form>
+    </div>
+
+
+    <div id="section2" class="content-section" style="display:none; margin-top:10%;">
+        <table border="1px" class="styles">
+            <tr>
+                <th>Booking Id</th>
+                <th>Package Name</th>
+                <th>Package Location</th>
+                <th>Package Type</th>
+                <th>Price</th>
+                <th>From</th>
+                <th>TO</th>
+                <th>Comment</th>
+            </tr>
+            {% for i in data2 %}
+            <tr>
+                <td>{{ i.BookingId }}</td>
+                <td>{{ i.PackageName }}</td>
+                <td>{{ i.PackageLocation }}</td>
+                <td>{{ i.Package_type }}</td>
+                <td>{{ i.Price }}</td>
+                <td>{{ i.From }}</td>
+                <td>{{ i.To }}</td>
+                <td>{{ i.Comment }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+
+    <div id="section3" class="content-section" style="display:none; margin-top:10%;">
+        <table border="1px" class="styles">
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Mobile Number</th>
+                <th>Subject</th>
+                <th>Description</th>
+            </tr>
+            {% for i in data3 %}
+            <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.Mobile_Number }}</td>
+                <td>{{ i.subject }}</td>
+                <td>{{ i.description }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+    <div id="section4" class="content-section" style="display:none; margin-top:10%;">
+        <table border="1px" class="styles">
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+            </tr>
+            {% for i in data1 %}
+            <tr>
+                <td>{{ i.username }}</td>
+                <td>{{ i.email }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+    <div id="section5" class="content-section" style="display:none; margin-top:10%;">
+        <table border="1px" class="styles">
+            <tr>
+                <th>Username</th>
+                <th>Package Name</th>
+                <th>Package Location</th>
+                <th>Description</th>
+            </tr>
+            {% for i in data4 %}
+            <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.Package_Name }}</td>
+                <td>{{ i.Package_Location }}</td>
+                <td>{{ i.comment }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>

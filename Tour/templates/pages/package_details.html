@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour_Details</title>
+    <style>
+        body {
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body style="background-image: url('{% static "assets/b1.jpg" %}');background-repeat:no-repeat;background-size:cover;">
+    <div>
+            <h1>Package_Name =  {{ data.PackageName }}</h1>
+            <h1>Package_Location = {{ data.PackageLocation }}</h1>
+            <h1>Package_type = {{ data.Package_type }}</h1>
+            <h1>Price = $ {{ data.Price }}</h1>
+            <h1>Starting_Date = {{ data.From }}</h1>
+            <h1>Ending_Date = {{ data.To }}</h1>
+            <h1>Description = {{ data.Comment }}</h1>
+            <form action="{% url 'book_now' package_id=data.id %}" method="POST">
+                {% csrf_token %}
+            <input type="submit" value="Book now"/>
+            
+            </form>
+    </div>
+    <script>
+        alert("{% for msg in messages%} {{msg}} {% endfor %}")
+    </script>
+</body>
+</html>
